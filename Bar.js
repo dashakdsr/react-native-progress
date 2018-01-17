@@ -15,6 +15,7 @@ const RNViewPropTypes = ViewPropTypes || View.propTypes;
 export default class ProgressBar extends Component {
   static propTypes = {
     animated: PropTypes.bool,
+    backgroundColorOfParentElement: PropTypes.string,
     borderColor: PropTypes.string,
     borderRadius: PropTypes.number,
     borderWidth: PropTypes.number,
@@ -172,7 +173,8 @@ export default class ProgressBar extends Component {
       left: -borderRadius,
       borderRadius: height / 2 + borderRadius / 2,
       borderWidth: borderRadius,
-      borderColor: 'white'
+      borderColor: this.props.backgroundColorOfParentElement
+
     };
 
     return (
