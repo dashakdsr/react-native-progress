@@ -41,7 +41,7 @@ export default class ProgressBar extends Component {
     color: 'rgba(0, 122, 255, 1)',
     height: 6,
     indeterminate: false,
-    progress: 0.01,
+    progress: 0.001,
     width: 150,
     useNativeDriver: false,
     animationConfig: { bounciness: 0 },
@@ -50,7 +50,7 @@ export default class ProgressBar extends Component {
 
   constructor(props) {
     super(props);
-    const progress = Math.min(Math.max(props.progress, 0.01), 1);
+    const progress = Math.min(Math.max(props.progress, 0.001), 1);
     this.state = {
       width: 0,
       progress: new Animated.Value(props.indeterminate ? INDETERMINATE_WIDTH_FACTOR : progress),
