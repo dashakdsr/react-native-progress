@@ -41,7 +41,7 @@ export default class ProgressBar extends Component {
     color: 'rgba(0, 122, 255, 1)',
     height: 6,
     indeterminate: false,
-    progress: 0,
+    progress: 0.01,
     width: 150,
     useNativeDriver: false,
     animationConfig: { bounciness: 0 },
@@ -50,7 +50,7 @@ export default class ProgressBar extends Component {
 
   constructor(props) {
     super(props);
-    const progress = Math.min(Math.max(props.progress, 0), 1);
+    const progress = Math.min(Math.max(props.progress, 0.01), 1);
     this.state = {
       width: 0,
       progress: new Animated.Value(props.indeterminate ? INDETERMINATE_WIDTH_FACTOR : progress),
@@ -180,7 +180,7 @@ export default class ProgressBar extends Component {
     return (
       <View style={[containerStyle, style]} onLayout={this.handleLayout} {...restProps}>
         <Animated.View style={progressStyle} />
-        <View style={fixCircleClipping}/>
+        <View style={fixCircleClipping} />
         {children}
       </View>
     );
